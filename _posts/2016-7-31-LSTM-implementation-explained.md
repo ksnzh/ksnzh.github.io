@@ -106,4 +106,4 @@ local next_h = nn.CMulTable()({out_gate, c_transform})
 ```
 ## Reference
 
-https://apaszke.github.io/lstm-explained.html
+[](https://apaszke.github.io/lstm-explained.html)
