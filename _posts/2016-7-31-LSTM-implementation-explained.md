@@ -41,7 +41,7 @@ LSTM能够解决长期依赖问题在于Cell state，在前面的公式表示中
 
 ### 输入
 LSTM层接受的输入张量为：
-\\[\{input, c_{t-1}^1, h_{t-1}^1\}\\]
+\\[\\{input, c_{t-1}^1, h_{t-1}^1\\}\\]
 
 ```lua
 local inputs = {}
@@ -105,4 +105,5 @@ local c_transform = nn.Tanh()(next_c)
 local next_h = nn.CMulTable()({out_gate, c_transform})
 ```
 ## Reference
+
 https://apaszke.github.io/lstm-explained.html
