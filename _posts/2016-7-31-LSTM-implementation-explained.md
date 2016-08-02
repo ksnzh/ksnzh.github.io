@@ -104,6 +104,7 @@ local next_c = nn.CAddTable()({
 local c_transform = nn.Tanh()(next_c)
 local next_h = nn.CMulTable()({out_gate, c_transform})
 ```
+
 ## Reference
 
 [](https://apaszke.github.io/lstm-explained.html)
