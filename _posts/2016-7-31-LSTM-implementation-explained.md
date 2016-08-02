@@ -52,12 +52,15 @@ local input = inputs[1]
 local prev_c = inputs[2]
 local prev_h = inputs[3]
 ```
+
 ### 计算门的值
+
 ```lua
 local i2h = nn.Linear(input_size, 4 * rnn_size)(input)  -- input to hidden
 local h2h = nn.Linear(rnn_size, 4 * rnn_size)(prev_h)   -- hidden to hidden
 local preactivations = nn.CAddTable()({i2h, h2h})       -- i2h + h2h
 ```
+
 Linear变换分为input to hidden的从input_size到4倍的rnn_size以及hidden to hidden的，在上面的公式中可以看到，激活值来自于三部分：input即公式中的\\(x_t\\),hidden即公式中的\\(h_{t-1}\\),以及偏置。以input to hidden来说，变换后的向量维度为4倍的rnn_size，分为4部分：第一部分是input gate，第二部分是foget gate，第三部分是output gate，第四部分是cell input。hidden to hidden同样如此。
 
 ![](/images/lstm/preactivation_graph.svg)
